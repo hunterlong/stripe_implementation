@@ -32,3 +32,4 @@ Based on the specs, the current limitation is the processing power of the server
 - Limited on the performance of the Stripe API. Hopefully there's no rate limiting. If the Stripe API is offline for some reason, then this API would only return errors. I do not recommend keeping any payment information (except confirmations ID's) on the server. Leaving all customer information on Stripe is P.C.I compliant. 
 - I would not cache any Stripe request. 
 - I would add `limit` as a URL query to limit the amount of customer payment records from Stripe. (only show 20 at a time)
+- I would also like to add a custom `Error` type that contains better errors messages and status codes based on Stripe response.
