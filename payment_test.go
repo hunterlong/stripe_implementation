@@ -48,8 +48,8 @@ func TestPayment(t *testing.T) {
 				AccountId: customerID,
 				Amount:    45.33,
 			},
-			Handler:      paymentsHandler,
-			ExpectedCode: 200,
+			Handler:              paymentsHandler,
+			ExpectedCode:         200,
 			ExpectedResponseFunc: checkPayment,
 		},
 		{
@@ -89,11 +89,11 @@ func TestPayment(t *testing.T) {
 func TestListPayments(t *testing.T) {
 	tester := []testData{
 		{
-			Url:          "/" + customerID + "/payments",
-			RouteMux:     "/{id}/payments",
-			Method:       "GET",
-			Handler:      accountPaymentsHandler,
-			ExpectedCode: 200,
+			Url:                  "/" + customerID + "/payments",
+			RouteMux:             "/{id}/payments",
+			Method:               "GET",
+			Handler:              accountPaymentsHandler,
+			ExpectedCode:         200,
 			ExpectedResponseFunc: checkCustomerPayments,
 		},
 		{

@@ -6,6 +6,7 @@ import (
 	"strconv"
 )
 
+// returnPaymentJSON returns the payment JSON based off stripe's payment response
 func returnPaymentJSON(ch *stripe.Charge) paymentCharge {
 	return paymentCharge{
 		ID:     ch.ID,
@@ -14,6 +15,7 @@ func returnPaymentJSON(ch *stripe.Charge) paymentCharge {
 	}
 }
 
+// intToFloat converts an int to a float
 func intToFloat(amount int64) float64 {
 	value := float64(amount) * 0.01
 	rr := fmt.Sprintf("%0.2f", value)
@@ -21,6 +23,7 @@ func intToFloat(amount int64) float64 {
 	return dollar
 }
 
+// floatToDollar converts a dollar amount to an int for stripe's dollar value
 func floatToDollar(amount float64) int64 {
 	amount = amount * 100
 	val, _ := strconv.ParseInt(fmt.Sprintf("%0.0f", amount), 10, 64)

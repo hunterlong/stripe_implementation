@@ -5,6 +5,7 @@ import (
 	"github.com/stripe/stripe-go/charge"
 )
 
+// chargeCustomer will charge a customer's billing profile with an amount
 func chargeCustomer(payment paymentJson) (*stripe.Charge, error) {
 	dollar := floatToDollar(payment.Amount)
 	chargeParams := &stripe.ChargeParams{
@@ -19,6 +20,7 @@ func chargeCustomer(payment paymentJson) (*stripe.Charge, error) {
 	return ch, nil
 }
 
+// customerPayments returns a list of payments made by a customer
 func customerPayments(customerID string) (custPayments, error) {
 	params := &stripe.ChargeListParams{
 		Customer: &customerID,
